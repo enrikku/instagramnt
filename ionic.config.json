@@ -1,0 +1,7 @@
+{
+  "name": "instagramnt",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
