@@ -14,7 +14,7 @@
   <!-- Creacion del registrar usuario -->
   <!-- En la bbdd el usuario contiene id, username, nombre, email, apellido, password, imagen -->
 
-  <form (ngSubmit)="crearUsuario()" [formGroup]="usuarioForm">
+  <form (ngSubmit)="crearUsuario()" [formGroup]="usuarioForm" method="post">
     <ion-item>
       <ion-label position="floating">Nombre</ion-label>
       <ion-input formControlName="nombre" required></ion-input>
@@ -30,6 +30,8 @@
       <div *ngIf="usuarioForm.get('email')?.hasError('email') && usuarioForm.get('email')?.touched">
         Correo electrónico inválido.
       </div>
+
+      
     </ion-item>
     <ion-item>
       <ion-label position="floating">Username</ion-label>
@@ -41,5 +43,8 @@
     </ion-item>
 
     <ion-button type="submit" [disabled]="!usuarioForm.valid">Enviar</ion-button>
+    <div *ngIf="!loginCorrecto">
+      {{ errorMessage }}
+    </div>
   </form>
 </ion-content>

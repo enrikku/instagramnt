@@ -16,4 +16,8 @@ export class SiginService {
         password
     );
   }
+
+  verificaSession(): Observable<any> {
+    return this.http.get('http://localhost/ionic/compruebaSession.php');
+  }
 }

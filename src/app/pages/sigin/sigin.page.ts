@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { SiginService } from 'src/app/services/sigin.service';
 import { HttpClientModule } from '@angular/common/http';
+import { Navigation, NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sigin',
@@ -15,8 +16,9 @@ import { HttpClientModule } from '@angular/common/http';
 export class SiginPage implements OnInit {
   username: string = '';
   password: string = '';
+  infoUser?: NavigationExtras;
 
-  constructor(private siginService: SiginService) {}
+  constructor(private siginService: SiginService,  private Router: Router) {}
 
   verificarUsuaris(username: string, password: string) {
     this.siginService
@@ -25,7 +27,20 @@ export class SiginPage implements OnInit {
         
         console.log(response);
         if (response.status == "success") {
+
+
+          this.infoUser = {
+            state:{
+              username: username
+            }
+          }
+
+
           console.log('Login correcte');
+          console.log(this.infoUser);
+          // Quiero enviar el username a la pagina home
+          
+          this.Router.navigate(['/home', this.infoUser]);
         } else {
           console.log('Login incorrecte');
         }

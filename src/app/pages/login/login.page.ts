@@ -6,6 +6,8 @@ import { LoginService } from 'src/app/services/login.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-login',
@@ -16,8 +18,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class LoginPage implements OnInit {
   usuarioForm: FormGroup;
+  loginCorrecto: boolean = true;
+  errorMessage: string = '';
 
-  constructor(private loginService: LoginService, private fb: FormBuilder) {
+  constructor(private loginService: LoginService, private fb: FormBuilder, private Router: Router) {
     this.usuarioForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -33,8 +37,23 @@ export class LoginPage implements OnInit {
       // Accede a los valores del formulario
       const { nombre, apellido, email, username, password } = this.usuarioForm.value;
 
-      this.loginService.crearUsuario(nombre, apellido, email, username, password).subscribe((response) => {
+      this.loginService.crearUsuario2(nombre, apellido, email, username, password).subscribe((response) => {
         console.log(response);
+
+
+        if(response.body.status == "success") {
+          this.loginCorrecto = true;
+          this.errorMessage = response.body.message;
+          
+          console.log('Login correcte');
+          this.Router.navigate(['/sigin']);
+          
+        } 
+        else {
+          this.loginCorrecto = false;
+          this.errorMessage = response.body.message;
+          console.log('Login incorrecte');
+        }
       });
     }
   }
