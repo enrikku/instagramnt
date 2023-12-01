@@ -17,6 +17,8 @@ export class SiginPage implements OnInit {
   username: string = '';
   password: string = '';
   remember: boolean = false;
+  siginCorrecto: boolean = true;
+  errorMessage: string = '';
 
   constructor(private siginService: SiginService, private Router: Router) {
   }
@@ -37,18 +39,12 @@ export class SiginPage implements OnInit {
           // document.cookie = 'nombre=username; expires=fecha; paht=/';
           document.cookie = "nombreUsuario=" + username + "; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
 
-          // Si quiere recordar credenciales se guarda en localstorage
-          // if (this.remember == true) {
-          //   localStorage.setItem('username', username);
-          //   localStorage.setItem('remember', this.remember.toString());
-          // } else {
-          //   // Aqui guardamos el recordarme como false para no comprobar si existen las credenciales
-          //   localStorage.setItem('remember', this.remember.toString());
-          // }
-
           this.Router.navigate(['/home']);
-        } else {
+        } 
+        else {
           console.log('Login incorrecte');
+          this.siginCorrecto = false;
+          this.errorMessage = "Usuario o contraseña incorrecta";
         }
       });
   }
