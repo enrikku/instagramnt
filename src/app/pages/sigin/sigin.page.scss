@@ -1,0 +1,8 @@
+/* En tu archivo .scss (o .css) */
+.visible-icon {
+    content: url('../../../assets/icon/eye.svg');
+  }
+    .hidden-icon{
+      content: url('../../../assets/icon/eye-slash.svg');
+    }
+    

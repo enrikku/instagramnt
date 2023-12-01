@@ -11,41 +11,48 @@ import { Navigation, NavigationExtras, Router } from '@angular/router';
   templateUrl: './sigin.page.html',
   styleUrls: ['./sigin.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule],
+  imports: [IonicModule, CommonModule, FormsModule, HttpClientModule, FormsModule],
 })
 export class SiginPage implements OnInit {
   username: string = '';
   password: string = '';
-  infoUser?: NavigationExtras;
+  remember: boolean = false;
 
-  constructor(private siginService: SiginService,  private Router: Router) {}
+  constructor(private siginService: SiginService, private Router: Router) {
+  }
 
+  recordarCredenciales() {}
+
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
   verificarUsuaris(username: string, password: string) {
     this.siginService
       .verificarUsuaris(username, password)
       .subscribe((response) => {
-        
-        console.log(response);
-        if (response.status == "success") {
+        // Si el inicio de session es correcto se redirige al home
+        if (response.status == 'success') {
+          // document.cookie = 'nombre=username; expires=fecha; paht=/';
+          document.cookie = "nombreUsuario=" + username + "; expires=" + new Date(new Date().getTime() + 24 * 60 * 60 * 1000).toUTCString() + "; path=/";
 
+          // Si quiere recordar credenciales se guarda en localstorage
+          // if (this.remember == true) {
+          //   localStorage.setItem('username', username);
+          //   localStorage.setItem('remember', this.remember.toString());
+          // } else {
+          //   // Aqui guardamos el recordarme como false para no comprobar si existen las credenciales
+          //   localStorage.setItem('remember', this.remember.toString());
+          // }
 
-          this.infoUser = {
-            state:{
-              username: username
-            }
-          }
-
-
-          console.log('Login correcte');
-          console.log(this.infoUser);
-          // Quiero enviar el username a la pagina home
-          
-          this.Router.navigate(['/home', this.infoUser]);
+          this.Router.navigate(['/home']);
         } else {
           console.log('Login incorrecte');
         }
-        
       });
   }
   ngOnInit() {}
+
+ 
 }

@@ -31,6 +31,12 @@ export class LoginPage implements OnInit {
     });
   }
 
+  showPassword: boolean = false;
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
+  }
+
   crearUsuario() {
     // Verifica si el formulario es válido antes de realizar la solicitud
     if (this.usuarioForm.valid) {

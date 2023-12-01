@@ -9,15 +9,11 @@ export class SiginService {
   constructor(private http: HttpClient) {}
 
   verificarUsuaris(username: string, password: string): Observable<any> {
-    return this.http.get(
-      'http://localhost/ionic/sigin.php?username=' +
-        username +
-        '&password=' +
-        password
-    );
+    // console.log(username, password);
+    return this.http.get('http://localhost/ionic/sigin.php?username=' + username +'&password=' + password);
   }
 
-  verificaSession(): Observable<any> {
-    return this.http.get('http://localhost/ionic/compruebaSession.php');
+  verificaSession(username: string): Observable<any> {
+    return this.http.get('http://localhost/ionic/compruebaSession.php?username=' + username);
   }
 }
