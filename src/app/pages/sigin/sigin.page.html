@@ -12,13 +12,13 @@
         <ion-input name="password" [(ngModel)]="password" type="{{ showPassword ? 'text' : 'password' }}" required></ion-input>
         <ion-icon  [class.visible-icon]="!showPassword" [class.hidden-icon]="showPassword" slot="end" style="margin-top: 20px;" (click)="togglePasswordVisibility()"></ion-icon>
       </ion-item>
-<!--   
-      <ion-item>
-        <ion-label>
-          <ion-checkbox name="remember" [(ngModel)]="remember" (ionChange)="recordarCredenciales()"></ion-checkbox>
-          Mantener sesion iniciada
-        </ion-label>
-      </ion-item> -->
+      <!--   
+            <ion-item>
+              <ion-label>
+                <ion-checkbox name="remember" [(ngModel)]="remember" (ionChange)="recordarCredenciales()"></ion-checkbox>
+                Mantener sesion iniciada
+              </ion-label>
+            </ion-item> -->
   
       <ion-button type="submit">Enviar</ion-button>
       <div *ngIf="!siginCorrecto">
