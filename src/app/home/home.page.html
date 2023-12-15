@@ -1,37 +1,69 @@
 <ion-content>
-  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
   <ion-toolbar>
-    <ion-button class="historia"  color="none">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </ion-button>
-    <ion-button class="historia"  color="none">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </ion-button>
-    <ion-button class="historia"  color="none">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </ion-button>
-    <ion-button class="historia"  color="none">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </ion-button>
-    <ion-button class="historia"  color="none">
-      <ion-avatar>
-        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-      </ion-avatar>
-    </ion-button>
-    <ion-icon name="logo-ionic"></ion-icon>
-    <ion-icon name="heart"></ion-icon>
 
+    <div class="nav">
+      <div class="nav-history-container">
+        <ion-button class="historia" color="none">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-button>
+        <ion-button class="historia" color="none">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-button>
+        <ion-button class="historia" color="none">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-button>
+        <ion-button class="historia" color="none">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-button>
+        <ion-button class="historia" color="none">
+          <ion-avatar>
+            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          </ion-avatar>
+        </ion-button>
+      </div>
 
+      <div class="nav-icons-container">
+        <ion-icon name="logo-ionic" class="nav-icons" src="../../assets/icon/send.svg"></ion-icon>
+        <ion-icon name="heart" class="nav-icons" src="../../assets/icon/heart.svg"></ion-icon>
+      </div>
+    </div>
   </ion-toolbar>
+
+  <div class="publicacion">
+    <div class="content-user">
+      <div class="content-user-name">
+        <ion-avatar class="avatar-publicacion">
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+        <p>enrikku_</p>
+      </div>
+
+      <div class="content-post">
+        <img src="https://docs-demo.ionic.io/assets/madison.jpg" alt="">
+      </div>
+
+      <div class="content-icons">
+        <div class="a">
+        <ion-icon name="heart" src="../../assets/icon/heart.svg"></ion-icon>
+        <ion-icon name="chatbubbles" src="../../assets/icon/chat.svg"></ion-icon>
+        <ion-icon name="paper-plane" src="../../assets/icon/send.svg"></ion-icon>
+        </div>
+        <ion-icon name="bookmark" src="../../assets/icon/bookmark.svg"></ion-icon>
+      </div>
+    
+    </div>
+  </div>
+
+
+
 
   <ion-button (click)="logout()"> Logout</ion-button>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

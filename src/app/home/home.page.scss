@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 #container {
   text-align: center;
 
@@ -26,8 +32,83 @@
   text-decoration: none;
 }
 
-.historia{
+.historia {
   --border-radius: 100%;
   width: 100px;
   height: 100px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav-history-container {
+  display: flex;
+  max-width: 80vw;
+  border: white solid 1px;
+}
+
+.nav-icons {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.nav-icons-container {
+  display: flex;
+  align-items: center;
+  max-width: 20vw;
+  border: red solid 1px;
+}
+
+.publicacion {
+  display: flex;
+  justify-content: center;
+  border: solid 1px white;
+}
+
+.content-user {
+  max-width: 80%;
+  max-width: 50%;
+
+  border: 1px solid yellow;
+}
+
+.content-user-name {
+  display: flex;
+  width: 100%;
+  height: 10%;
+  align-items: center;
+  border: #8c8c8c solid 1px;
+}
+
+.avatar-publicacion {
+  width: 40px;
+  height: 40px;
+  border: #8c8c8c solid 1px;
+}
+
+// Imagen
+.content-post {
+  height: 80%;
+}
+
+.content-post img {
+  width: 100%;
+  height: 100%;
+}
+
+.content-icons{
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  height: 5%;
+  background-color: red;
+  border: 1px solid red;
+}
+
+.content-icons ion-icon{
+  margin: 5px;
 }
