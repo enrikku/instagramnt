@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';//s
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';

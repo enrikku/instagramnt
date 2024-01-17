@@ -13,12 +13,12 @@ export class LoginService {
   {
     // console.log("AAAAAAAAAAAAA" + nombre, apellido, email, username, password);
     return this.http.post('http://localhost/ionic/login.php', {
-  nombre: nombre,
-  apellido: apellido,
-  email: email,
-  username: username,
-  password: password
-}, { observe: 'response' });
+      nombre: nombre,
+      apellido: apellido,
+      email: email,
+      username: username, 
+      password: password
+    }, { observe: 'response' });
 
   }
 

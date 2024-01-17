@@ -1,0 +1,10 @@
+<body>
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="fileInput" class="file-input-label">Choose an image</label>
+        <input type="file" id="fileInput" accept="image/png, image/gif, image/jpeg" (change)="onFileSelected($event)" />
+
+        <button type="button" (click)="sendImg()">Upload</button>
+    </form>
+
+    <img id="img" src="{{imgBase64}}" alt="">
+</body>
