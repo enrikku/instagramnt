@@ -1,14 +1,19 @@
-<ion-content [fullscreen]="true">
+<body>
+
   <div id="container">
+    <h1>Instagramnt</h1>
+
     <form (ngSubmit)="crearUsuario()" [formGroup]="usuarioForm" method="post">
       <ion-item>
         <ion-label position="floating">Nombre</ion-label>
         <ion-input formControlName="nombre" required></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label position="floating">Apellido</ion-label>
         <ion-input formControlName="apellido" required></ion-input>
       </ion-item>
+
       <ion-item>
         <ion-label position="floating">Email</ion-label>
         <ion-input formControlName="email" required></ion-input>
@@ -17,24 +22,31 @@
           Correo electrónico inválido.
         </div>
       </ion-item>
+
       <ion-item>
-        <ion-label position="floating">Username</ion-label>
+        <ion-label position="floating">Nombre usuario</ion-label>
         <ion-input formControlName="username" required></ion-input>
       </ion-item>
 
       <ion-item>
-        <ion-label position="floating">Password</ion-label>
+        <ion-label position="floating">Contraseña</ion-label>
         <ion-input type="{{ showPassword ? 'text' : 'password' }}" formControlName="password" required></ion-input>
         <ion-icon [class.visible-icon]="!showPassword" [class.hidden-icon]="showPassword" slot="end"
           style="margin-top: 20px;" (click)="togglePasswordVisibility()"></ion-icon>
       </ion-item>
 
-      <ion-button type="submit" [disabled]="!usuarioForm.valid">Enviar</ion-button>
-
+      <ion-button type="submit" [disabled]="!usuarioForm.valid">Registrarse</ion-button>
 
       <div *ngIf="!loginCorrecto">
         {{ errorMessage }}
       </div>
     </form>
+
+    <div id="loginContainer">
+      <p>¿Ya tengo una cuenta?</p>
+      <a id="inicioSession" (click)="openLogin()">Iniciar sesión</a>
+    </div>
+
   </div>
-</ion-content>
+
+</body>

@@ -1,5 +1,7 @@
-<ion-content [fullscreen]="true">
+<body>
+  
   <div id="container">
+    <h1>Instagramnt</h1>
 
     <form method="post" (ngSubmit)="verificarUsuaris(username, password)">
       <ion-item>
@@ -20,13 +22,17 @@
               </ion-label>
             </ion-item> -->
   
-      <ion-button type="submit">Enviar</ion-button>
+      <ion-button type="submit">Entrar</ion-button>
       <div *ngIf="!siginCorrecto">
        {{ errorMessage }}
      </div>
     </form>
 
-  </div>
+    <div id="registerContainer">
+      <p>¿No tienes una contraseña?</p>
+      <a id="registro" (click)="openRegistro()">Regístrate</a>
+    </div>
 
+  </div>
   
-</ion-content>
+</body>

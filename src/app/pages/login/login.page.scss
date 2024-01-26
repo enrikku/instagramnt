@@ -6,17 +6,31 @@
     content: url('../../../assets/icon/eye-slash.svg');
   }
   
+  * {
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  body {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    height: 100vh !important;
+  }
+
   #container {
     text-align: center;
-  
-    position: absolute;
-    left: 25%;
-    right: 0;
-    top: 50%;
-    width: 50%;
-    transform: translateY(-50%);
+    border: solid 2px white;
+    width: 50vh;
+    height: 90vh;
   }
-  
+
+  h1 {
+    color: white;
+    margin: 7vh 0 7vh 0;
+  }
+
   #container strong {
     font-size: 20px;
     line-height: 26px;
@@ -25,12 +39,62 @@
   #container p {
     font-size: 16px;
     line-height: 22px;
-  
     color: #8c8c8c;
-  
-    margin: 0;
   }
   
+  ion-label {
+    height: 3vh;
+  }
+
   #container a {
     text-decoration: none;
+  }
+
+  form ion-item {
+    margin: 0 1.5vh 1vh 1.5vh;
+  }
+
+  ion-button {
+    margin-top: 2vh;
+    width: 46vh;
+  }
+
+  #loginContainer {
+    margin-top: 5vh;
+  }
+
+  #inicioSession {
+    color: #5353ec;
+    margin-top: 2vh;
+  }
+
+  @media (max-width: 450px) {
+    #container {
+      width: 90vw;
+      height: 90vh !important;
+    }  
+
+    h1 {
+      margin: 5vh 0 5vh 0;
+    }
+
+    ion-button {
+      width: 82vw;
+    }  
+
+    #loginContainer {
+      margin-top: 5vh;
+    }  
+  }
+
+  @media (max-width: 1025px) {
+    #container {
+      height: 68vh;
+    }  
+  }
+
+  @media ( (min-width: 450px) and (max-width: 1025px) ) {
+    #container {
+      height: 90vh;
+    }  
   }

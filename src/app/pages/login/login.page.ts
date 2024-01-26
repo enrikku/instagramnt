@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 import { HttpClientModule } from '@angular/common/http';//s
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
@@ -21,7 +21,7 @@ export class LoginPage implements OnInit {
   loginCorrecto: boolean = true;
   errorMessage: string = '';
 
-  constructor(private loginService: LoginService, private fb: FormBuilder, private Router: Router) {
+  constructor(private loginService: LoginService, private fb: FormBuilder, private Router: Router, private navCtrl:NavController) {
     this.usuarioForm = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -64,4 +64,8 @@ export class LoginPage implements OnInit {
     }
   }
   ngOnInit() {}
+
+  openLogin() {
+    this.navCtrl.navigateForward('sigin');
+  }
 }

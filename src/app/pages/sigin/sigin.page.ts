@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
+import { IonicModule, NavController } from '@ionic/angular';
 import { SiginService } from 'src/app/services/sigin.service';
 import { HttpClientModule } from '@angular/common/http';
 import { Navigation, NavigationExtras, Router } from '@angular/router';
@@ -20,7 +20,7 @@ export class SiginPage implements OnInit {
   siginCorrecto: boolean = true;
   errorMessage: string = '';
 
-  constructor(private siginService: SiginService, private Router: Router) {
+  constructor(private siginService: SiginService, private Router: Router, private navCtrl:NavController) {
   }
 
   recordarCredenciales() {}
@@ -50,5 +50,8 @@ export class SiginPage implements OnInit {
   }
   ngOnInit() {}
 
+  openRegistro() {
+    this.navCtrl.navigateForward('login');
+  }
  
 }

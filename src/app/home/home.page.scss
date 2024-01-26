@@ -6,7 +6,6 @@
 
 #container {
   text-align: center;
-
   position: absolute;
   left: 0;
   right: 0;
@@ -43,21 +42,9 @@
   text-decoration: none;
 }
 
-.historia {
-  --border-radius: 100%;
-  width: 100px;
-  height: 100px;
-}
-
 .nav {
   display: flex;
   justify-content: space-between;
-}
-
-.nav-history-container {
-  display: flex;
-  max-width: 80vw;
-  // border: white solid 1px;
 }
 
 .nav-icons {
@@ -81,7 +68,6 @@
 }
 
 .content-user {
-  max-width: 80%;
   max-width: 50%;
   //border: 1px solid yellow;
 }
@@ -92,6 +78,11 @@
   height: 10%;
   align-items: center;
   // border: #8c8c8c solid 1px;
+}
+
+.content-user-name p, .avatar-publicacion {
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
 }
 
 .avatar-publicacion {
@@ -114,9 +105,7 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-
   height: 5%;
-  background-color: red;
 }
 
 .content-icons ion-icon{
@@ -127,4 +116,28 @@
 
 .content-coments{
   font-size: 15px;
+}
+
+@media (max-width: 450px) {
+  .content-user {
+    max-width: 90%;
+  }
+  
+  .content-user-name p, .avatar-publicacion {
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+  }
+
+  .content-user-name p {
+    margin-left: 1.5vw;
+  }
+
+  .content-post {
+    height: 35vh;
+    margin-top: 4vh;
+  }
+
+  .publicacion {
+    margin-bottom: 1vh;
+  }
 }
