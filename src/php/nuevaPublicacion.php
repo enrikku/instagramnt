@@ -13,16 +13,30 @@ if (!$connexio) {
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-// $foto = $_POST['img'];
 
-// foreach($_POST as $i) {
-//     //$data[$key] = mysqli_real_escape_string($connexio, $value);
-//     $foto = $i;
-// }
 
 $imgBase64 = $data['img'];
-$idUsuari = 1;
+//$idUsuari = 1;
 $likes = 0;
+
+$username = $data['username'];
+
+
+
+$sqlSaberIdUsername = "SELECT idUsuari FROM usuaris WHERE Username = ?";
+//$username ="Enr";
+$stmtSaberIdUsername = mysqli_prepare($connexio, $sqlSaberIdUsername);
+mysqli_stmt_bind_param($stmtSaberIdUsername, "s", $username);
+mysqli_stmt_execute($stmtSaberIdUsername);
+
+mysqli_stmt_bind_result($stmtSaberIdUsername, $idUsuari);
+
+// Recupera el resultado
+mysqli_stmt_fetch($stmtSaberIdUsername);
+mysqli_stmt_close($stmtSaberIdUsername);
+
+
+
 
 $sql = "INSERT INTO publicaciones ( idUsuari, dataPublicacio, likes, img) VALUES (?, NOW(), ?, ?)";
 $stmt = mysqli_prepare($connexio, $sql);

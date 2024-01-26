@@ -72,11 +72,33 @@ if ($resultado) {
             // Si no hay comentarios, establecer un array vacío
             $fila['comentarios'] = array();
         }
+
+
+
+        // Saber username del usuario que ha publicado
+        $sql4 = "SELECT username FROM usuaris WHERE idUsuari = ?";
+        $resultadoUsername = mysqli_prepare($connexio, $sql4);
+
+        mysqli_stmt_bind_param($resultadoUsername, 's', $fila['idUsuari']);
+        mysqli_stmt_execute($resultadoUsername);
+
+        // Almacenar los resultados
+        mysqli_stmt_store_result($resultadoUsername);
+
+        if (mysqli_stmt_num_rows($resultadoUsername) > 0) {
+            mysqli_stmt_bind_result($resultadoUsername, $username);
+            mysqli_stmt_fetch($resultadoUsername);
+            $fila['username'] = $username;
+        }
+        else {
+            // No hay resultados, establecer username a null o cualquier valor predeterminado
+            $fila['username'] = null;
+        }
+
+
     
         // Liberar resultados
         mysqli_stmt_free_result($resultadoComentarios);
-
-
 
         $datos[] = $fila;
     }
