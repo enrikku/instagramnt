@@ -1,52 +1,93 @@
+// body {
+//     font-family: Arial, sans-serif;
+//     background-color: #f4f4f4;
+//     margin: 0;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+// }
+
+// form {
+//     background-color: #fff;
+//     padding: 20px;
+//     border-radius: 8px;
+//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+// }
+
+// label {
+//     display: block;
+//     margin-bottom: 10px;
+// }
+
+// input[type="file"] {
+//     display: none;
+// }
+
+// .file-input-label {
+//     background-color: #3498db;
+//     color: #fff;
+//     padding: 10px 15px;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     display: inline-block;
+// }
+
+// button {
+//     background-color: #2ecc71;
+//     color: #fff;
+//     padding: 10px 15px;
+//     border: none;
+//     border-radius: 5px;
+//     cursor: pointer;
+//     display: block;
+//     margin-top: 10px;
+// }
+
+// #img {
+//     max-width: 50%;
+//     margin-top: 20px;
+//     border-radius: 8px;
+//     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+// }
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-}
-
-input[type="file"] {
-    display: none;
+  text-align: center;
 }
 
 .file-input-label {
-    background-color: #3498db;
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    display: inline-block;
+  display: block;
+  margin: 20px 0;
+  cursor: pointer;
+  color: #007bff;
+}
+
+#fileInput {
+  display: none;
 }
 
 button {
-    background-color: #2ecc71;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    display: block;
-    margin-top: 10px;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
 }
 
-#img {
-    max-width: 50%;
-    margin-top: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 100%;
+  max-height: 80%;
+
+  min-width: auto;
+  min-height: 80%;
 }

@@ -35,7 +35,10 @@ export class NuevaPublicacionPage implements OnInit {
     
   sendImg() {
     //console.log("img" + this.imgBase64);
-    this.ServeiPublicacioService.subirImg(this.imgBase64).subscribe((response) => {
+    const cookieValue = document.cookie.split('=')[1];
+    //console.log(cookieValue)
+
+    this.ServeiPublicacioService.subirImg(this.imgBase64, cookieValue).subscribe((response) => {
       console.log(response);
       console.log(response.status);
       if (response.status === 200) {

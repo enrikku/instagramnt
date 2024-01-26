@@ -19,7 +19,7 @@
       <ion-avatar class="avatar-publicacion">
         <img alt="Silhouette of a person's head" [src]="foto.avatarUrl || 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
       </ion-avatar>
-      <p>enrikku_</p>
+      <p>{{ foto.username }}</p>
     </div>
 
     <div class="content-post">
@@ -49,9 +49,6 @@
         <input type="text" name="coments" [(ngModel)]="comentario" placeholder="Agrega un comentario...">
         <button type="submit">Publicar</button>
       </form>
-
-
-
 
     </div>
   </div>

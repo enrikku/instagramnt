@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 export class ServeiPublicacioService {
   constructor(private http: HttpClient) {}
 
-  subirImg(img: string): Observable<any> {
+  subirImg(img: string, username: string): Observable<any> {
     console.log('funciona la funcion subir img');
 
     return this.http.post(
       'http://localhost/ionic/nuevaPublicacion.php',
       {
         img: img,
+        username: username
       },
       {
         observe: 'response',
