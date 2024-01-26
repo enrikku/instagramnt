@@ -1,45 +1,19 @@
 <ion-content>
-  <ion-toolbar>
+  <div id="toolbar">
 
     <div class="nav">
-      <div class="nav-history-container">
-        <ion-button class="historia" color="none">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-button>
-        <ion-button class="historia" color="none">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-button>
-        <ion-button class="historia" color="none">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-button>
-        <ion-button class="historia" color="none">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-button>
-        <ion-button class="historia" color="none">
-          <ion-avatar>
-            <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
-          </ion-avatar>
-        </ion-button>
-      </div>
-
       <div class="nav-icons-container">
         <ion-icon (click)="navNewPub()" name="add" class="nav-icons" src="../../assets/icon/plus-circle.svg"></ion-icon>
-        <ion-icon name="logo-ionic" class="nav-icons" src="../../assets/icon/send.svg"></ion-icon>
-        <ion-icon name="heart" class="nav-icons" src="../../assets/icon/heart.svg"></ion-icon>
+        <ion-icon (click)="logout()" name="add" class="nav-icons" src="../../assets/icon/logout.svg"></ion-icon>
       </div>
     </div>
-  </ion-toolbar>
 
+  </div>
   <!-- tu-componente.component.html -->
-<div *ngFor="let foto of fotos" class="publicacion">
+
+
+
+  <div *ngFor="let foto of fotos" class="publicacion">
   <div class="content-user">
     <div class="content-user-name">
       <ion-avatar class="avatar-publicacion">
@@ -54,18 +28,31 @@
 
     <div class="content-icons">
       <div class="a">
-        <ion-icon name="heart" src="../../assets/icon/heart.svg"></ion-icon>
-        <ion-icon name="chatbubbles" src="../../assets/icon/chat.svg"></ion-icon>
-        <ion-icon name="paper-plane" src="../../assets/icon/send.svg"></ion-icon>
+        <ion-icon name="heart" src="../../assets/icon/heart.svg" (click)="like(foto)"></ion-icon>
       </div>
-      <ion-icon name="bookmark" src="../../assets/icon/bookmark.svg"></ion-icon>
     </div>
 
     <div class="content-coments">
-      <p>4.000 Me gusta</p>
-      <p>enrikku_</p>
-      <p>HOla</p>
-      <p>Ver los 100 comentarios</p>
+      <p>{{foto.numLikes }} likes</p>
+        <!-- <p *ngFor="let comentario of foto.comentarios">
+          {{ comentario }}
+        </p> -->
+
+        <p *ngFor="let comentario of foto.comentarios.slice(0, comentariosMostrados)">
+          {{ comentario }}
+        </p>
+      
+        <!-- Botón "Mostrar más" -->
+        <button *ngIf="comentariosMostrados < foto.comentarios.length" (click)="mostrarMasComentarios()">Mostrar más</button>
+
+      <form (ngSubmit)="comentar(foto)">
+        <input type="text" name="coments" [(ngModel)]="comentario" placeholder="Agrega un comentario...">
+        <button type="submit">Publicar</button>
+      </form>
+
+
+
+
     </div>
   </div>
 </div>
@@ -74,7 +61,7 @@
 
 
 
-  <ion-button (click)="logout()"> Logout</ion-button>
+  
 
   
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

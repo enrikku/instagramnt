@@ -5,7 +5,8 @@ import { ActivatedRoute, Router, Routes } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { CommonModule } from '@angular/common'
 import { ServiceGetfotosService } from '../services/service-getfotos.service';
-
+import { ServeiPublicacioService } from '../services/servei-publicacio.service';
+import { FormsModule } from '@angular/forms';
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
@@ -16,13 +17,15 @@ import { RouterModule } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule],
+  imports: [IonicModule, CommonModule, FormsModule],
 })
 export class HomePage {
+
+
   username: string | null = '';
   recordarme: string | null = '';
   public fotos: any; 
-  constructor(private siginService: SiginService, private router: Router, private ServiceGetfotosService: ServiceGetfotosService) {}
+  constructor(private siginService: SiginService, private router: Router, private ServiceGetfotosService: ServiceGetfotosService, private ServeiPublicacioService: ServeiPublicacioService) {}
 
   checkCookie() {
     var cookie = document.cookie;
@@ -37,30 +40,11 @@ export class HomePage {
     var existe = this.checkCookie();
 
     if (existe) {
-      console.log('existe');
       this.getFotos();
     }
     else{
       this.router.navigate(['/sigin']);
     }
-
-
-    // this.username = 'Eva';
-    // this.siginService
-    //   .verificaSession(this.username)
-    //   .subscribe((response) => {
-    //     if (response.status == 'success') 
-    //     {
-    //       console.log(response);
-    //     } 
-    //     else 
-    //     {
-    //       console.log(response);
-    //       this.router.navigate(['/sigin']);
-    //     }
-    //     // console.log(response);
-    //   });
-
   }
 
   getFotos() {
@@ -68,7 +52,7 @@ export class HomePage {
       (data) => {
         // La petición fue exitosa, 'data' contiene la respuesta
         this.fotos = data;
-        console.log('Datos de fotos:', this.fotos);
+        //console.log('Datos de fotos:', this.fotos);
       },
       (error) => {
         // La petición falló, 'error' contiene la información del error
@@ -85,4 +69,42 @@ export class HomePage {
     document.cookie = "nombreUsuario=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
     this.router.navigate(['/sigin']);
   }
+
+
+
+  like(arg0: any) 
+  {
+    // Conseguir el valor de la cookie con el nombre de usuario
+    const cookieValue = document.cookie.split('=')[1];
+
+    this.ServeiPublicacioService.darLike(arg0.idPublicacio, cookieValue).subscribe(
+      (data) => {
+        // La petición fue exitosa, 'data' contiene la respuesta
+        //console.log(data);
+      }
+    )
+  }
+
+  comentario: string = '';
+
+  comentar(foto:any){
+    const cookieValue = document.cookie.split('=')[1];
+
+    this.ServeiPublicacioService.publicarComentario(foto.idPublicacio, cookieValue, this.comentario).subscribe(
+      (data) => {
+        // La petición fue exitosa, 'data' contiene la respuesta
+        //console.log(data);
+        location.reload()
+      }
+    )  
+  }
+
+  // Variable para realizar un seguimiento del número de comentarios que se mostrarán inicialmente
+  comentariosMostrados = 2;
+
+  // Método para aumentar el número de comentarios que se mostrarán
+  mostrarMasComentarios() {
+    this.comentariosMostrados += 2; // Puedes ajustar según tu necesidad
+  }
+  
 }
