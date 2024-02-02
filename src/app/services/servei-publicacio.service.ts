@@ -12,7 +12,7 @@ export class ServeiPublicacioService {
     console.log('funciona la funcion subir img');
 
     return this.http.post(
-      'http://localhost/ionic/nuevaPublicacion.php',
+      'http://ionic-adrienric.scienceontheweb.net//nuevaPublicacion.php',
       {
         img: img,
         username: username
@@ -29,7 +29,7 @@ export class ServeiPublicacioService {
   darLike(idPublicacio: string, username: string): Observable<any> {
     console.log('funciona la funcion dar like');
     return this.http.post(
-      'http://localhost/ionic/darLike.php',
+      'http://ionic-adrienric.scienceontheweb.net/darLike.php',
       {
         idPublicacio: idPublicacio,
         username: username
@@ -47,7 +47,7 @@ export class ServeiPublicacioService {
   publicarComentario(idPublicacio: string, username: string, comentario: string): Observable<any> {
     console.log('funciona la funcion dar like');
     return this.http.post(
-      'http://localhost/ionic/publicarComentario.php',
+      'http://ionic-adrienric.scienceontheweb.net/publicarComentario.php',
       {
         idPublicacio: idPublicacio,
         username: username,

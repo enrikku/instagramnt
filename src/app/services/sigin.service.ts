@@ -10,10 +10,10 @@ export class SiginService {
 
   verificarUsuaris(username: string, password: string): Observable<any> {
     // console.log(username, password);
-    return this.http.get('http://localhost/ionic/sigin.php?username=' + username +'&password=' + password);
+    return this.http.get('http://ionic-adrienric.scienceontheweb.net/sigin.php?username=' + username +'&password=' + password);
   }
 
   verificaSession(username: string): Observable<any> {
-    return this.http.get('http://localhost/ionic/compruebaSession.php?username=' + username);
+    return this.http.get('http://ionic-adrienric.scienceontheweb.net/compruebaSession.php?username=' + username);
   }
 }

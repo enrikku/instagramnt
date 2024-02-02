@@ -12,7 +12,7 @@ export class LoginService {
   crearUsuario2(nombre: string, apellido: string, email: string, username: string, password: string):Observable<any> 
   {
     // console.log("AAAAAAAAAAAAA" + nombre, apellido, email, username, password);
-    return this.http.post('http://localhost/ionic/login.php', {
+    return this.http.post('http://ionic-adrienric.scienceontheweb.net/login.php', {
       nombre: nombre,
       apellido: apellido,
       email: email,
@@ -30,7 +30,7 @@ export class LoginService {
     password: string
   ): Observable<any> {
     return this.http.get(
-      'http://localhost/ionic/login.php?nombre=' + nombre + '&apellido=' + apellido + '&email=' + email +'&username=' + username + '&password=' + password
+      'http://ionic-adrienric.scienceontheweb.net/login.php?nombre=' + nombre + '&apellido=' + apellido + '&email=' + email +'&username=' + username + '&password=' + password
 
     );
   }

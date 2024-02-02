@@ -10,6 +10,6 @@ export class ServiceGetfotosService {
   constructor(public http: HttpClient) { }
 
   getFotos(): Observable<any> {
-    return this.http.get('http://localhost/ionic/getPublicaciones.php');
+    return this.http.get('http://ionic-adrienric.scienceontheweb.net/getPublicaciones.php');
   }
 }
